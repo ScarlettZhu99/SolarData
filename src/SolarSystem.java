@@ -44,9 +44,49 @@ public class SolarSystem {
        
 /**
  *
- * @author 
+ * @author Yueming Meng
  */  
+    @Override
+        public String toString(){
+            //" Perihelion:"+Perihelion+" Aphelion:"+Aphelion++" orbPeriod:"+orbPeriod+" rotationalPeriod:"+rotationalPeriod+" axialtilt:"+axialtilt+" orbinclin:"+orbinclin
+            return "Name:"+Name+"   Orbit:"+Orbit+"     Mass:"+Mass+"      Diam:+"+Diam+"   Mean Distance of orbit:"+meanD+'\n';
+        }
+    }
+    public SolarSystem()  throws FileNotFoundException{
+        ArrayList<Body> system= new ArrayList<>();
+     
+        Scanner s = new Scanner(new BufferedReader( new FileReader("solarsystem.dat")));
+        String[] Firstline=new String[9];
+        for (int i = 0; i < 9; i++) {
+            Firstline[i]=s.next();
+        }
+   
+        while(s.hasNext()){
+           
+            String a,b;
+            Double c,d,g,h,i,j,e,f;
+            a= s.next();
+            b= s.next();
+            c=s.nextDouble();
+            d=s.nextDouble();
+            e=s.nextDouble();
+            f=s.nextDouble();
+            g=s.nextDouble();
+            h=s.nextDouble();
+            i=s.nextDouble();
+            j=s.nextDouble();
+            Body bi=new Body(a,b,c,d,e,f,g,h,i,j);
+            
+           
+            //System.out.println(bi);
+            system.add(bi);
+            
+        }
         
+                System.out.println(system.get(0));
+                System.out.println(system.get(2));
+                System.out.println(system.get(3));
+                System.out.println(system.get(4));    
         
         
         
